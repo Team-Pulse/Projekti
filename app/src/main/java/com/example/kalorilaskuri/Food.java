@@ -17,8 +17,8 @@ public class Food {
 
     @Override
     public String toString() {
-        return "Food:" + this.name + "\n"
-                + "kcal:" + this.kcal;
+        return "Food: " + this.name + "\n"
+                + "kcal: " + this.kcal;
     }
 
 

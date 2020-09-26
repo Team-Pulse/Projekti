@@ -6,4 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".FoodListDetailsActivity">
 
+    <ListView
+        android:id="@+id/addedfoods"
+        android:layout_width="377dp"
+        android:layout_height="371dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/eatmore"
+        android:layout_width="144dp"
+        android:layout_height="81dp"
+        android:text="Eat More"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addedfoods" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

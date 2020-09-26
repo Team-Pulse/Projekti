@@ -31,6 +31,7 @@ public class FoodListActivity extends AppCompatActivity {
                 Log.d("onItemClick", "pressed");
                 Intent nextActivity = new Intent(FoodListActivity.this,
                         FoodListDetailsActivity.class);
+
                 startActivity(nextActivity);
             }
         });

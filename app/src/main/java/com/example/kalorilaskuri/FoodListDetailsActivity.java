@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class FoodListDetailsActivity extends MainActivity {
     Button eatmorebtn;
     private ArrayList<Food> foodDetails;
+    String teasdfsadf;
 
 
     @Override

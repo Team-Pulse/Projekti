@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,20 +23,20 @@ public class FoodListDetailsActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list_details);
+
         this.lvFoodListDetails = (ListView) findViewById(R.id.addedfoods);
-        eatMoreButton();
+
 
         int selectedFoodIndex =
                 getIntent().getExtras().getInt(FoodListActivity.SELECTED_FOOD, -1);
         Food food =
                 FoodList.getInstance().getFood(selectedFoodIndex);
-        foodDetails = new ArrayList<Food>(Arrays.asList(food));
-        adapter=new ArrayAdapter<Food>(this,R.layout.activity_food_list_details,
-                R.id.addedfoods, foodDetails);
-        lvFoodListDetails.setAdapter(adapter);
 
 
 
+
+
+        eatMoreButton();
 
     }
 

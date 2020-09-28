@@ -22,12 +22,7 @@ public class FoodListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list);
 
-        this.lv = findViewById(R.id.foodlistview);
-
-        lv.setAdapter(new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,
-                FoodList.getInstance().getFoods()));
-
+        setAdapter();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -36,8 +31,8 @@ public class FoodListActivity extends AppCompatActivity {
                         FoodListDetailsActivity.class);
 
 
-                foodDetailsActivity.putExtra(FoodListActivity.SELECTED_FOOD, position);
 
+                foodDetailsActivity.putExtra(FoodListActivity.SELECTED_FOOD, position);
                 startActivity(foodDetailsActivity);
             }
         });
@@ -47,7 +42,10 @@ public class FoodListActivity extends AppCompatActivity {
     }
 
     public void setAdapter(){
-
+        this.lv = findViewById(R.id.foodlistview);
+        lv.setAdapter(new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1,
+                FoodList.getInstance().getFoods()));
     }
 
 

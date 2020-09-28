@@ -4,28 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/button"
-        android:layout_width="188dp"
-        android:layout_height="137dp"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="170dp"
+        android:layout_height="110dp"
         android:layout_marginBottom="104dp"
+        android:background="#2711A7F8"
+        android:drawableRight="@drawable/icons8_vegetarian_food_64"
+        android:ellipsize="none"
+        android:fontFamily="@font/helvetica_neue_bold"
         android:text="EAT!"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.878"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
 </androidx.constraintlayout.widget.ConstraintLayout>

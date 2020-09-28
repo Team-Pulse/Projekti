@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class FoodList {
     private static final FoodList ourInstance = new FoodList();
-    private ArrayList<Food> foods;
+    public ArrayList<Food> foods;
 
-    private FoodList(){
+    public FoodList(){
         foods = new ArrayList<>();
         foods.add(new Food("mandariini", 32));
         foods.add(new Food("mandariini", 32));

@@ -10,10 +10,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class FoodListActivity extends AppCompatActivity {
 
     ListView lv;
+    public static final String SELECTED_FOOD = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +32,23 @@ public class FoodListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("onItemClick", "pressed");
-                Intent nextActivity = new Intent(FoodListActivity.this,
+                Intent foodDetailsActivity = new Intent(FoodListActivity.this,
                         FoodListDetailsActivity.class);
 
-                startActivity(nextActivity);
+
+                foodDetailsActivity.putExtra(FoodListActivity.SELECTED_FOOD, position);
+
+                startActivity(foodDetailsActivity);
             }
         });
 
 
 
     }
+
+    public void setAdapter(){
+
+    }
+
+
 }

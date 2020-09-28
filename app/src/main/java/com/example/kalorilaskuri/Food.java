@@ -13,6 +13,15 @@ public class Food {
         return this.name;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setKcal(int kcal){
+        this.kcal = kcal;
+    }
+
+
 
 
     @Override

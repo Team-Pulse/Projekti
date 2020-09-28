@@ -31,4 +31,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);
     }
+
+    public void openMain() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

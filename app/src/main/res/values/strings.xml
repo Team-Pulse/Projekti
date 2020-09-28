@@ -2,4 +2,5 @@
     <string name="app_name">Kalorilaskuri</string>
     <string name="eat">Eat</string>
     <string name="todo">TODO</string>
+    <string name="totalCount">Total kilocalories:</string>
 </resources>

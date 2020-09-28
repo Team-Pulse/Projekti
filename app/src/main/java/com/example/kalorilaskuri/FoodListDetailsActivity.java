@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class FoodListDetailsActivity extends MainActivity {
     Button eatmorebtn;
+    Button returnbtn;
     private ArrayList<Food> foodDetails;
     ListView foodListDetail;
 
@@ -38,12 +39,20 @@ public class FoodListDetailsActivity extends MainActivity {
             @Override
             public void onClick(View v) {
                 openFoodList();
-
-
-
             }
         });
 
+        returnbtn = findViewById(R.id.returnButton);
+
+        returnbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FoodListDetailsSingletonClass.getInstance().getFoods().clear();
+                foodListDetail.setAdapter(null);
+
+                openMain();
+            }
+        });
 
     }
 }

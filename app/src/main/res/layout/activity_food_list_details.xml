@@ -18,27 +18,45 @@
 
     <Button
         android:id="@+id/eatmore"
-        android:layout_width="124dp"
-        android:layout_height="140dp"
+        android:layout_width="152dp"
+        android:layout_height="92dp"
         android:background="#2711A7F8"
-        android:drawableBottom="@drawable/icons8_plus_64"
+        android:drawableEnd="@drawable/icons8_plus_64"
         android:fontFamily="@font/helvetica_neue_bold"
         android:text="Eat More"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addedfoods" />
+        app:layout_constraintTop_toBottomOf="@+id/addedfoods"
+        app:layout_constraintVertical_bias="0.65" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="290dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/totalCount"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/eatmore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="152dp"
+        android:layout_height="92dp"
+        android:background="#2711A7F8"
+        android:drawableStart="@drawable/icons8_return_64"
+        android:fontFamily="@font/helvetica_neue_bold"
+        android:text="Return"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addedfoods"
+        app:layout_constraintVertical_bias="0.65" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setEatBtn();
+
+    }
+
+    public void setEatBtn(){
         eatBtn = (Button) findViewById(R.id.button);
 
         eatBtn.setOnClickListener(new View.OnClickListener() {
@@ -26,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
     public void openFoodList(){
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class FoodListDetailsSingletonClass {
     private static final FoodListDetailsSingletonClass ourInstance = new FoodListDetailsSingletonClass();
-    private ArrayList<Food> foodDetailsAcitiy;
+    public ArrayList<Food> foodDetailsAcitiy;
 
     private FoodListDetailsSingletonClass(){
         foodDetailsAcitiy = new ArrayList<>();

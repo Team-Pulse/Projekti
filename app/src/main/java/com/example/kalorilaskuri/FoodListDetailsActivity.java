@@ -29,21 +29,12 @@ public class FoodListDetailsActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list_details);
         setFoodListDetail();
-        saveData();
+        foodDetails = new ArrayList<>();
         setEatmorebtn();
         setReturnbtn();
 
-    }
 
-    public void saveData(){
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(foodDetails);
-        editor.putString("food list", json);
-        editor.apply();
     }
-
 
 
     public void setFoodListDetail(){
@@ -70,7 +61,6 @@ public class FoodListDetailsActivity extends MainActivity {
         returnbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 openMain();
             }

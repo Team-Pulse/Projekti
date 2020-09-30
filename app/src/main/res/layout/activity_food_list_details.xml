@@ -21,40 +21,27 @@
         android:layout_width="152dp"
         android:layout_height="92dp"
         android:background="#2711A7F8"
-        android:drawableEnd="@drawable/icons8_add_new_64"
-        android:fontFamily="@font/montserrat_regular"
+        android:drawableEnd="@drawable/icons8_plus_64"
+        android:fontFamily="@font/helvetica_neue_bold"
         android:text="Eat More"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addedfoods"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.65" />
 
     <TextView
         android:id="@+id/textView"
-<<<<<<< HEAD
         android:layout_width="241dp"
         android:layout_height="38dp"
         android:layout_marginBottom="40dp"
-=======
-        android:layout_width="290dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/montserrat_regular"
->>>>>>> 5b1b07fd7764f5edbc9741c0ab196fdc30955ae2
         android:text="@string/totalCount"
-        android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/eatmore"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.229"
-=======
-        app:layout_constraintHorizontal_bias="0.322"
->>>>>>> 5b1b07fd7764f5edbc9741c0ab196fdc30955ae2
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -63,10 +50,9 @@
         android:layout_height="92dp"
         android:background="#2711A7F8"
         android:drawableStart="@drawable/icons8_return_64"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/helvetica_neue_bold"
         android:text="Return"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
@@ -74,7 +60,6 @@
         app:layout_constraintTop_toBottomOf="@+id/addedfoods"
         app:layout_constraintVertical_bias="0.65" />
 
-<<<<<<< HEAD
     <TextView
         android:id="@+id/kcals"
         android:layout_width="80dp"
@@ -84,21 +69,5 @@
         android:textSize="40dp"
         tools:layout_editor_absoluteX="280dp"
         tools:layout_editor_absoluteY="459dp" />
-=======
-    <Button
-        android:id="@+id/clearButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="17dp"
-        android:background="#27434242"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="Clear all"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addedfoods" />
->>>>>>> 5b1b07fd7764f5edbc9741c0ab196fdc30955ae2
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -23,12 +22,7 @@ public class FoodListDetailsActivity extends MainActivity {
     Button returnbtn;
     Button clearbtn;
     ListView foodListDetail;
-<<<<<<< HEAD
-    TextView kcals;
-
-=======
     private ArrayList<Food> foodDetails;
->>>>>>> 5b1b07fd7764f5edbc9741c0ab196fdc30955ae2
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +45,7 @@ public class FoodListDetailsActivity extends MainActivity {
     }
 
 
-<<<<<<< HEAD
-
-
-    public void setFoodListDetail(){
-=======
     public void setFoodListDetail() {
->>>>>>> 5b1b07fd7764f5edbc9741c0ab196fdc30955ae2
         this.foodListDetail = findViewById(R.id.addedfoods);
         foodListDetail.setAdapter(new ArrayAdapter<>(this, android.R.layout.
                 simple_list_item_1, FoodListDetailsSingletonClass.getInstance().getFoods()));

@@ -2,6 +2,7 @@ package com.example.kalorilaskuri;
 
 /**
  * Luokka sisältää ruokalistalla olevien olioiden ominaisuuksia:Nimen ja energiamäärän
+ *
  * @author Jukka-Pekka Lappalainen
  */
 
@@ -11,10 +12,11 @@ public class Food {
 
     /**
      * Oliolla on 2 muuttujaa, String tyypin nimi, int tyypin kcal.
+     *
      * @param name määrittää olion String tyypin nimen.
      * @param kcal määrittää olion int tyypin energiamäärän.
      */
-    public Food(String name, int kcal){
+    public Food(String name, int kcal) {
         /*
         Luokan konstruktori johon syötetään String tyypin paremetri name, ja int tyypin paremetri
         kcal.
@@ -23,7 +25,7 @@ public class Food {
         this.kcal = kcal;
     }
 
-    public String getName(){
+    public String getName() {
         /*
          * Tämä metodi palauttaa String tyypin nimen.
          */

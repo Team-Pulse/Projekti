@@ -20,9 +20,9 @@ import java.util.ArrayList;
 public class FoodListDetailsActivity extends MainActivity {
     Button eatmorebtn;
     Button returnbtn;
-    private ArrayList<Food> foodDetails;
+    Button clearbtn;
     ListView foodListDetail;
-
+    private ArrayList<Food> foodDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +32,29 @@ public class FoodListDetailsActivity extends MainActivity {
         foodDetails = new ArrayList<>();
         setEatmorebtn();
         setReturnbtn();
+        setClearbtn();
+    }
 
-
+    public void reloadUI() {
+        setContentView(R.layout.activity_food_list_details);
+        setFoodListDetail();
+        foodDetails = new ArrayList<>();
+        setEatmorebtn();
+        setReturnbtn();
+        setClearbtn();
     }
 
 
-    public void setFoodListDetail(){
+    public void setFoodListDetail() {
         this.foodListDetail = findViewById(R.id.addedfoods);
         foodListDetail.setAdapter(new ArrayAdapter<>(this, android.R.layout.
                 simple_list_item_1, FoodListDetailsSingletonClass.getInstance().getFoods()));
 
     }
 
-    public void setEatmorebtn(){
+    public void setEatmorebtn() {
 
-        eatmorebtn = (Button)findViewById(R.id.eatmore);
+        eatmorebtn = findViewById(R.id.eatmore);
         eatmorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,16 +63,26 @@ public class FoodListDetailsActivity extends MainActivity {
         });
     }
 
-    public void setReturnbtn(){
+    public void setReturnbtn() {
 
         returnbtn = findViewById(R.id.returnButton);
         returnbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 openMain();
             }
         });
+    }
 
+    public void setClearbtn() {
+
+        clearbtn = findViewById(R.id.clearButton);
+        clearbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearFoodListDetails();
+                reloadUI();
+            }
+        });
     }
 }

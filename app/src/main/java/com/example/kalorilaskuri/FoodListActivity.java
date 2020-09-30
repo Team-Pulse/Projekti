@@ -14,6 +14,7 @@ import android.widget.ListView;
 public class FoodListActivity extends AppCompatActivity {
 
     ListView lv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +36,9 @@ public class FoodListActivity extends AppCompatActivity {
                         add(FoodList.getInstance().getFood(position));
 
 
-
                 startActivity(nextActivity);
             }
         });
-
 
 
     }

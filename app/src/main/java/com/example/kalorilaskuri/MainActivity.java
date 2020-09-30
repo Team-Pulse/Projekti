@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void setEatBtn(){
+    public void setEatBtn() {
         //nimetään activity_main.xml:stä löytyvä EAT! nappi, jonka id on button.
-        eatBtn = (Button) findViewById(R.id.button);
+        eatBtn = findViewById(R.id.button);
         //asetetaan setOnClickListener metodi joka nappia painamalla käynnistää openFoodList()
         // metodin
         eatBtn.setOnClickListener(new View.OnClickListener() {
@@ -36,16 +36,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void openFoodList(){
+    public void openFoodList() {
         //Luo uuden intent olion, mikä käynnistää FoodListActivityn
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);
     }
 
     public void openMain() {
-        //Luo uuden intent olion mikä käynnistää Main.Activityn.
-        //Käytetään return buttonissa.
+        //Luo uuden intent olion mikä käynnistää MainActivityn.
+        //Käytetään return-buttonissa.
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void clearFoodListDetails() {
+        //Tyhjentää FoodListDetailsActivityn lisättyjen ruokien listan
+        //Käytetään clear-buttonissa
+        FoodListDetailsSingletonClass.getInstance().getFoods().clear();
     }
 }

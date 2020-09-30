@@ -6,7 +6,7 @@ public class FoodList {
     private static final FoodList ourInstance = new FoodList();
     private ArrayList<Food> foods;
 
-    private FoodList(){
+    private FoodList() {
         foods = new ArrayList<>();
         foods.add(new Food("mandariini", 32));
         foods.add(new Food("appelsiini", 43));
@@ -30,15 +30,15 @@ public class FoodList {
         foods.add(new Food("parsakaali", 30));
     }
 
-    public static FoodList getInstance(){
+    public static FoodList getInstance() {
         return ourInstance;
     }
 
-    public ArrayList<Food> getFoods(){
+    public ArrayList<Food> getFoods() {
         return this.foods;
     }
 
-    public Food getFood(int index){
+    public Food getFood(int index) {
         return foods.get(index);
     }
 }

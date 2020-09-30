@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 
-import org.w3c.dom.Text;
-
 public class Login extends AppCompatActivity {
     private EditText name;
     private EditText password;
@@ -24,17 +22,21 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        name = (EditText)findViewById(R.id.etname);
-        password = (EditText) findViewById(R.id.etpassword);
-        info = (TextView)findViewById(R.id.tvinfo);
-        loginbutton = (Button)findViewById(R.id.btnlogin);
-
+        setupUIViews();
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validate(name.getText().toString(), password.getText().toString());
             }
         });
+    }
+    //asettaa muuttujille näkymät.
+    private  void setupUIViews(){
+        name = (EditText)findViewById(R.id.etname);
+        password = (EditText) findViewById(R.id.etuserpassword);
+        info = (TextView)findViewById(R.id.tvinfo);
+        loginbutton = (Button)findViewById(R.id.btnlogin);
+
     }
 
     /*

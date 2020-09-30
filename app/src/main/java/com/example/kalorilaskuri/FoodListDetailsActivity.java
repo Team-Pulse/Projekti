@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -22,6 +23,7 @@ public class FoodListDetailsActivity extends MainActivity {
     Button returnbtn;
     private ArrayList<Food> foodDetails;
     ListView foodListDetail;
+    TextView kcals;
 
 
     @Override
@@ -35,6 +37,8 @@ public class FoodListDetailsActivity extends MainActivity {
 
 
     }
+
+
 
 
     public void setFoodListDetail(){

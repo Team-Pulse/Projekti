@@ -34,13 +34,14 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="290dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="241dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/totalCount"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/eatmore"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.229"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -58,5 +59,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addedfoods"
         app:layout_constraintVertical_bias="0.65" />
+
+    <TextView
+        android:id="@+id/kcals"
+        android:layout_width="80dp"
+        android:layout_height="68dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="459dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@ public class FoodListDetailsSingletonClass {
     private static final FoodListDetailsSingletonClass ourInstance = new FoodListDetailsSingletonClass();
     public ArrayList<Food> foodDetailsAcitivity;
 
-    private FoodListDetailsSingletonClass(){
+    public FoodListDetailsSingletonClass(){
         /*
          * Luo foodDetailsActivity taulukon
          */
@@ -40,6 +40,10 @@ public class FoodListDetailsSingletonClass {
          */
         return foodDetailsAcitivity.get(index);
     }
+
+
+
+
 
 
 }

@@ -3,4 +3,8 @@
     <string name="eat">Eat</string>
     <string name="todo">TODO</string>
     <string name="totalCount">Total kilocalories:</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="incorrect_attempts">Incorrect attempts</string>
 </resources>

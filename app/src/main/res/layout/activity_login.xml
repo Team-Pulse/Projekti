@@ -52,19 +52,10 @@
         android:id="@+id/tvregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/tvinfo"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="151dp"
-        android:text="Sign up"
+        android:layout_marginBottom="23dp"
+        android:text="@string/sign_up"
         android:textSize="28sp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="143dp"
-        android:background="#00FFFFFF" />
 
 </RelativeLayout>

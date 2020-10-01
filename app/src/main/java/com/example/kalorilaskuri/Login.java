@@ -15,6 +15,7 @@ public class Login extends AppCompatActivity {
     private TextView info;
     private Button loginbutton;
     private int counter = 3;
+    private TextView userRegisteration;
 
 
     @Override
@@ -22,11 +23,21 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+
         setupUIViews();
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validate(name.getText().toString(), password.getText().toString());
+            }
+        });
+
+        userRegisteration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, RegistrationActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -36,6 +47,7 @@ public class Login extends AppCompatActivity {
         password = (EditText) findViewById(R.id.etuserpassword);
         info = (TextView)findViewById(R.id.tvinfo);
         loginbutton = (Button)findViewById(R.id.btnlogin);
+        userRegisteration = (TextView)findViewById(R.id.tvregister);
 
     }
 
@@ -53,7 +65,7 @@ public class Login extends AppCompatActivity {
             startActivity(intent);
         }else{
             counter --;
-            info.setText("Number of attempts remaining" + String.valueOf(counter));
+            info.setText("Number of attempts remaining " + String.valueOf(counter));
 
             if(counter == 0){
                 loginbutton.setEnabled(false);

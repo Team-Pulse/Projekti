@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "153719067436",
+    "firebase_url": "https://kalorilaskuri-5900d.firebaseio.com",
+    "project_id": "kalorilaskuri-5900d",
+    "storage_bucket": "kalorilaskuri-5900d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153719067436:android:2da4c85a4475c6f0355289",
+        "android_client_info": {
+          "package_name": "com.example.kalorilaskuri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153719067436-cfbpb2isikmero1naret05gun7ks7bio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR0POiGmB5OAjMzWXOE9niFbJKKmNUXUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153719067436-cfbpb2isikmero1naret05gun7ks7bio.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

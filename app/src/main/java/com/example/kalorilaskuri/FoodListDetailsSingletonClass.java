@@ -1,6 +1,8 @@
 package com.example.kalorilaskuri;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Luokka sisältää ruokalistalla olevien olioiden ominaisuuksia:Nimen ja energiamäärän
  * @author Jukka-Pekka Lappalainen
@@ -11,13 +13,13 @@ public class FoodListDetailsSingletonClass {
      * Luo yksityisen staattisen instanssiolion.
      */
     private static final FoodListDetailsSingletonClass ourInstance = new FoodListDetailsSingletonClass();
-    public ArrayList<Food> foodDetailsAcitivity;
+    public ArrayList<Food> addedfoods;
 
     public FoodListDetailsSingletonClass(){
         /*
          * Luo foodDetailsActivity taulukon
          */
-        foodDetailsAcitivity = new ArrayList<>();
+        addedfoods = new ArrayList<>();
     }
 
     public static FoodListDetailsSingletonClass getInstance(){
@@ -31,15 +33,21 @@ public class FoodListDetailsSingletonClass {
         /**
          * @return foodDetailsActivity
          */
-        return this.foodDetailsAcitivity;
+        return this.addedfoods;
     }
 
     public Food getFood(int index){
         /**
          * @return foodDetails
          */
-        return foodDetailsAcitivity.get(index);
+        return addedfoods.get(index);
     }
+
+    public void clearArray(){
+        addedfoods = new ArrayList<>();
+    }
+
+
 
 
 

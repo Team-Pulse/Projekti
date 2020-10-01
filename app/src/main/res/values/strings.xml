@@ -3,4 +3,14 @@
     <string name="eat">Eat</string>
     <string name="todo">TODO</string>
     <string name="totalCount">Total kilocalories:</string>
+    <string name="username">Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="incorrect_attempts">Incorrect attempts</string>
+    <string name="sign_up">Sign up</string>
+    <string name="register">Register</string>
+    <string name="already_signed_up">Already signed up?</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="userpassword">Password</string>
 </resources>

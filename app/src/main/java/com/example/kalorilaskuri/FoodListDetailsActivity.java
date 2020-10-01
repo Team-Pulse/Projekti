@@ -22,6 +22,7 @@ public class FoodListDetailsActivity extends MainActivity {
     Button returnbtn;
     Button clearbtn;
     ListView foodListDetail;
+    ArrayAdapter<Food> adapter;
     private ArrayList<Food> foodDetails;
 
     @Override
@@ -29,6 +30,13 @@ public class FoodListDetailsActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list_details);
         setFoodListDetail();
+        clearbtn = findViewById(R.id.clearButton);
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
+                FoodListDetailsSingletonClass.getInstance().getFoods());
+        foodListDetail.setAdapter(adapter);
+
+
         foodDetails = new ArrayList<>();
         setEatmorebtn();
         setReturnbtn();
@@ -46,6 +54,7 @@ public class FoodListDetailsActivity extends MainActivity {
 
 
     public void setFoodListDetail() {
+
         this.foodListDetail = findViewById(R.id.addedfoods);
         foodListDetail.setAdapter(new ArrayAdapter<>(this, android.R.layout.
                 simple_list_item_1, FoodListDetailsSingletonClass.getInstance().getFoods()));
@@ -76,14 +85,19 @@ public class FoodListDetailsActivity extends MainActivity {
 
     public void setClearbtn() {
 
-        clearbtn = findViewById(R.id.clearButton);
+
         clearbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FoodListDetailsSingletonClass.getInstance().clearArray();
                 foodListDetail.setAdapter(null);
+                adapter.notifyDataSetChanged();
+
+
 
             }
         });
+
+
     }
 }

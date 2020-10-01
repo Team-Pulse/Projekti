@@ -11,49 +11,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
+        android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/montserrat_regular"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUserName"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/etUserName" />
 
     <EditText
         android:id="@+id/etuserpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
+        android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/montserrat_regular"
         android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etuseremail"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/etuseremail" />
 
     <EditText
         android:id="@+id/etUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
+        android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/montserrat_regular"
         android:inputType="textPersonName"
         android:text="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/registerbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="106dp"
+        android:layout_height="60dp"
         android:layout_marginTop="96dp"
+        android:background="#2711A7F8"
+        android:fontFamily="@font/montserrat_regular"
         android:text="@string/register"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
+        android:fontFamily="@font/montserrat_regular"
         android:text="@string/already_signed_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

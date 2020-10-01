@@ -80,8 +80,9 @@ public class FoodListDetailsActivity extends MainActivity {
         clearbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clearFoodListDetails();
-                reloadUI();
+                FoodListDetailsSingletonClass.getInstance().clearArray();
+                foodListDetail.setAdapter(null);
+
             }
         });
     }

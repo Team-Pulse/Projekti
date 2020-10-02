@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -25,6 +26,7 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
     Button eatmorebtn;
     Button returnbtn;
     Button clearbtn;
+    private TextView totalKcal;
     private RecyclerView mAddedFoods;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -34,6 +36,7 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list_details);
         setFoodListDetail();
+        setTotalKcal();
         clearbtn = findViewById(R.id.clearButton);
 
         setEatmorebtn();
@@ -52,6 +55,11 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
         mAddedFoods.setAdapter(mAdapter);
     }
 
+    public void setTotalKcal() {
+        totalKcal = findViewById(R.id.kcals);
+        totalKcal.setText(Integer.toString(FoodListDetailsSingletonClass.totalKcal(FoodListDetailsSingletonClass.getInstance().getFoods())));
+    }
+
     ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -62,6 +70,7 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
             FoodListDetailsSingletonClass.getInstance().getFoods().remove(viewHolder.getAdapterPosition());
             mAdapter.notifyDataSetChanged();
+            setTotalKcal();
         }
     };
 
@@ -95,6 +104,7 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
                 FoodListDetailsSingletonClass.getInstance().clearArray();
                 mAddedFoods.setAdapter(null);
                 mAdapter.notifyDataSetChanged();
+                setTotalKcal();
             }
         });
 

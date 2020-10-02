@@ -15,6 +15,14 @@ public class FoodListDetailsSingletonClass {
     private static final FoodListDetailsSingletonClass ourInstance = new FoodListDetailsSingletonClass();
     public ArrayList<Food> addedfoods;
 
+    public static int totalKcal(ArrayList<Food> foodDetails) {
+        int sum = 0;
+        for (int i = 0; i < foodDetails.size(); i++) {
+            sum += FoodListDetailsSingletonClass.getInstance().getFood(i).getKcal();
+        }
+        return sum;
+    }
+
     public FoodListDetailsSingletonClass(){
         /*
          * Luo foodDetailsActivity taulukon

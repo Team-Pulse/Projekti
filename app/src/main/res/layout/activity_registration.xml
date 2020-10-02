@@ -43,9 +43,12 @@
         android:layout_marginTop="116dp"
         android:autofillHints=""
         android:ems="10"
+<<<<<<< HEAD
+        android:hint="@string/name"
+=======
         android:fontFamily="@font/montserrat_regular"
+>>>>>>> 611b4be2dcd168bdcf3c22c66fb3b03831fc1f16
         android:inputType="textPersonName"
-        android:text="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

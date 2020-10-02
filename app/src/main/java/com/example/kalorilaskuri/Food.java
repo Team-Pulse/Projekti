@@ -7,8 +7,9 @@ package com.example.kalorilaskuri;
  */
 
 public class Food {
-    String name;
-    int kcal;
+    private String name;
+    private int kcal;
+    private int mImageResource;
 
     /**
      * Oliolla on 2 muuttujaa, String tyypin nimi, int tyypin kcal.
@@ -16,13 +17,14 @@ public class Food {
      * @param name määrittää olion String tyypin nimen.
      * @param kcal määrittää olion int tyypin energiamäärän.
      */
-    public Food(String name, int kcal) {
+    public Food(String name, int kcal, int imageResource) {
         /*
         Luokan konstruktori johon syötetään String tyypin paremetri name, ja int tyypin paremetri
         kcal.
          */
         this.name = name;
         this.kcal = kcal;
+        this.mImageResource = imageResource;
     }
 
     public String getName() {
@@ -37,6 +39,14 @@ public class Food {
          * tämä metodi palauttaa int tyypin kcal.
          */
         return kcal;
+    }
+
+    public String getKcalString() {
+        return "kcal: " + this.kcal;
+    }
+
+    public int getmImageResource() {
+        return mImageResource;
     }
 
     @Override

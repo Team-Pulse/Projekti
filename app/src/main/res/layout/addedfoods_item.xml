@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/textViewNimi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="9dp"
+            android:layout_toEndOf="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Line 1"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="" />
+
+        <TextView
+            android:id="@+id/textViewKcal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewNimi"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toEndOf="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Line 2"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

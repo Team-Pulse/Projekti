@@ -1,6 +1,10 @@
 package com.example.kalorilaskuri;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,13 +21,13 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class FoodListDetailsActivity extends MainActivity {
+public class FoodListDetailsActivity extends MainActivity implements FoodListAdapter.FoodListViewHolder.OnFoodListListener {
     Button eatmorebtn;
     Button returnbtn;
     Button clearbtn;
-    ListView foodListDetail;
-    ArrayAdapter<Food> adapter;
-    private ArrayList<Food> foodDetails;
+    private RecyclerView mAddedFoods;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,34 +36,34 @@ public class FoodListDetailsActivity extends MainActivity {
         setFoodListDetail();
         clearbtn = findViewById(R.id.clearButton);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
-                FoodListDetailsSingletonClass.getInstance().getFoods());
-        foodListDetail.setAdapter(adapter);
-
-
-        foodDetails = new ArrayList<>();
         setEatmorebtn();
         setReturnbtn();
         setClearbtn();
     }
-
-    public void reloadUI() {
-        setContentView(R.layout.activity_food_list_details);
-        setFoodListDetail();
-        foodDetails = new ArrayList<>();
-        setEatmorebtn();
-        setReturnbtn();
-        setClearbtn();
-    }
-
 
     public void setFoodListDetail() {
 
-        this.foodListDetail = findViewById(R.id.addedfoods);
-        foodListDetail.setAdapter(new ArrayAdapter<>(this, android.R.layout.
-                simple_list_item_1, FoodListDetailsSingletonClass.getInstance().getFoods()));
-
+        this.mAddedFoods = findViewById(R.id.addedfoods);
+        mAddedFoods.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        mAdapter = new FoodListAdapter(FoodListDetailsSingletonClass.getInstance().getFoods(), this);
+        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(mAddedFoods);
+        mAddedFoods.setLayoutManager(mLayoutManager);
+        mAddedFoods.setAdapter(mAdapter);
     }
+
+    ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+            FoodListDetailsSingletonClass.getInstance().getFoods().remove(viewHolder.getAdapterPosition());
+            mAdapter.notifyDataSetChanged();
+        }
+    };
 
     public void setEatmorebtn() {
 
@@ -85,19 +89,20 @@ public class FoodListDetailsActivity extends MainActivity {
 
     public void setClearbtn() {
 
-
         clearbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FoodListDetailsSingletonClass.getInstance().clearArray();
-                foodListDetail.setAdapter(null);
-                adapter.notifyDataSetChanged();
-
-
-
+                mAddedFoods.setAdapter(null);
+                mAdapter.notifyDataSetChanged();
             }
         });
 
+
+    }
+
+    @Override
+    public void onFoodListClick(int position) {
 
     }
 }

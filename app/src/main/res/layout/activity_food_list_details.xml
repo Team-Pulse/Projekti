@@ -7,31 +7,23 @@
     android:background="#FFFFFF"
     tools:context=".FoodListDetailsActivity">
 
-    <ListView
-        android:id="@+id/addedfoods"
-        android:layout_width="377dp"
-        android:layout_height="371dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/eatmore"
         android:layout_width="152dp"
         android:layout_height="92dp"
+        android:layout_marginBottom="64dp"
         android:background="#2711A7F8"
         android:drawableEnd="@drawable/icons8_add_new_64"
         android:fontFamily="@font/montserrat_regular"
+        android:paddingEnd="4dp"
         android:text="Eat More"
+        android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addedfoods"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -50,9 +42,12 @@
         android:id="@+id/returnButton"
         android:layout_width="152dp"
         android:layout_height="92dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="64dp"
         android:background="#2711A7F8"
         android:drawableStart="@drawable/icons8_return_64"
         android:fontFamily="@font/montserrat_regular"
+        android:paddingStart="4dp"
         android:text="Return"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -60,8 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addedfoods"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/kcals"
@@ -82,30 +76,30 @@
 
     <Button
         android:id="@+id/clearButton"
-        android:layout_width="120dp"
+        android:layout_width="116dp"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="17dp"
         android:background="#26FF1313"
         android:drawableEnd="@drawable/icons8_clear_symbol_32"
         android:fontFamily="@font/montserrat_regular"
+        android:paddingEnd="4dp"
         android:text="Clear all"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addedfoods" /><![CDATA[
-
-    ="@+id/" />]]>
-
-    =======
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
->>>>>>> a6acbc9a9c4561fad6ef460d68ed05e4e82bb915
-        android:text="Clear all"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addedfoods" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/addedfoods"
+        android:layout_width="409dp"
+        android:layout_height="377dp"
+        android:padding="4dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

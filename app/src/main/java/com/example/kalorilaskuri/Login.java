@@ -46,7 +46,7 @@ public class Login extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);//
         FirebaseUser user = firebaseAuth.getCurrentUser();/*Kommunikoi databasen kanssa ja kertoo
                                                             onko käyttäjä kirjautunut Firebaseen.*/
-        if (user == null){//jos kirjautunut sisään, tuhoaa aktiviteetin ja siiryy Mainclass.classiin.
+        if (user != null){//jos kirjautunut sisään, tuhoaa aktiviteetin ja siiryy Mainclass.classiin.
            finish();
            startActivity(new Intent(Login.this, MainActivity.class));
         }

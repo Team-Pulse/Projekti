@@ -8,8 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
     private Button eatBtn;
+    private FirebaseAuth firebaseAuth;
+    private Button exitbtn;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -18,6 +22,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setEatBtn();
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        exitbtn = (Button)findViewById(R.id.exitbtn);
+        exitbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {//Uloskirjaus funktio
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(MainActivity.this, Login.class));
+            }
+        });
 
     }
 

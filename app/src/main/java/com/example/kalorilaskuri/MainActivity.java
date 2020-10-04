@@ -1,12 +1,13 @@
 package com.example.kalorilaskuri;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -14,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
     private Button eatBtn;
     private FirebaseAuth firebaseAuth;
     private Button exitbtn;
+
+
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -27,14 +31,27 @@ public class MainActivity extends AppCompatActivity {
         exitbtn = (Button)findViewById(R.id.exitbtn);
         exitbtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {//Uloskirjaus funktio
-                firebaseAuth.signOut();
-                finish();
-                startActivity(new Intent(MainActivity.this, Login.class));
+            public void onClick(View v) {
+                Exit();
             }
         });
 
+
+
+
     }
+
+    private void Exit(){//Uloskirjaus funktio kirjaa käyttäjän takaisin Activity_Login.xml:n.
+        firebaseAuth.signOut();
+        finish();
+        startActivity(new Intent(MainActivity.this, Login.class));
+        Toast.makeText(MainActivity.this, "You were logged out", Toast.LENGTH_SHORT).show();
+
+    }
+
+
+
+
 
     public void setEatBtn() {
         //nimetään activity_main.xml:stä löytyvä EAT! nappi, jonka id on button.

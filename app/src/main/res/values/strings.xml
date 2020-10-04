@@ -13,4 +13,6 @@
     <string name="email">Email</string>
     <string name="userpassword">Password</string>
     <string name="name">Username</string>
+    <string name="refresh">Refresh</string>
+    <string name="exit">Exit</string>
 </resources>

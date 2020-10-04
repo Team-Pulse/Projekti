@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
         loginbutton = (Button)findViewById(R.id.btnlogin);
         userRegisteration = (TextView)findViewById(R.id.tvregister);
 
-        info.setText("Number of attempts remaining 5");
+        info.setText("Number of attempts remaining " + counter);
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);//

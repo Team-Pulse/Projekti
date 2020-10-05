@@ -18,7 +18,7 @@
         android:autofillHints=""
         android:ems="10"
         android:fontFamily="@font/montserrat_regular"
-        android:hint="@string/name"
+        android:hint="@string/e_mail"
         android:inputType="textPersonName" />
 
     <EditText

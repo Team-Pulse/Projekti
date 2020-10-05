@@ -15,4 +15,5 @@
     <string name="name">Username</string>
     <string name="refresh">Refresh</string>
     <string name="exit">Exit</string>
+    <string name="e_mail">E-mail</string>
 </resources>

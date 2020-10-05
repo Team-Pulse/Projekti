@@ -55,8 +55,8 @@ public class Login extends AppCompatActivity {
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Tarkistaa, täsmääkö käyttäjänimi ja salasana databaseen asetettuun käyttäjätiliin
-                * ja salasanaan.*/
+                /*Jos käyttäjä antaa oikeat syötteet, tarkistaa
+                 * että käyttäjä on tehnyt sähköpostivarmenteen.*/
                 validate(name.getText().toString(), password.getText().toString());
 
             }
@@ -79,16 +79,16 @@ public class Login extends AppCompatActivity {
         progressDialog.setMessage("Hold on. We're logging you in.");
         progressDialog.show();
 
+
         firebaseAuth.signInWithEmailAndPassword(userName, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    /*Jos käyttäjä antaa oikeat syötteet, tarkistaa
+                     * että käyttäjä on tehnyt sähköpostivarmenteen.*/
                     progressDialog.dismiss();
-                    Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Login.this, MainActivity.class));
-
-
-                }else{
+                    checkEmailVertification();
+                }else{//Vähentää yrityskertoja jokaisella väärällä salasanasyötteellä.
                     Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
                     counter--;
 
@@ -99,5 +99,21 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void checkEmailVertification(){
+        FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
+        Boolean emailFlag = firebaseUser.isEmailVerified(); /*emailflag on totta, jos käyttäjä
+                                                              on jo todentanut sähköpostinsa.*/
+        if(emailFlag){
+            finish();
+            startActivity(new Intent(Login.this, MainActivity.class));
+        }else{
+            Toast.makeText(this,"Please verify your email", Toast.LENGTH_SHORT).show();
+            firebaseAuth.signOut();/*Käyttäjä kirjataan sisään, kun käyttäjä syöttää kirjautumistiedot,
+                                     vaikka sähköpostintodennusta ei olisi
+                                     tehty, joten tästä syystä käyttäjä kirjataan ulos else silmukassa.*/
+        }
+
     }
 }

@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -47,9 +48,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                     //Kertoo käyttäjälle onko tehtävä onnistunut vai ei.
                                     //jos on niin siirrytään Login acticityyn.
                                     if(task.isSuccessful()){
-                                        Toast.makeText(RegistrationActivity.this,
-                                                "Thank you for your registeration!",
-                                                Toast.LENGTH_SHORT).show();
+                                        sendEmailVertification();
                                         startActivity(new Intent
                                                 (RegistrationActivity.this,
                                                         Login.class));
@@ -95,5 +94,29 @@ public class RegistrationActivity extends AppCompatActivity {
             result = true;
         }
         return result;
+    }
+    // Jos todentaminen onnistuu, siirtää login aktiviteettiin.
+    private void sendEmailVertification(){
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if(firebaseUser != null){//Kun firebase saa  tiedon käyttäjästä, lähettää se todennusviestin.
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(RegistrationActivity.this,
+                                "Register complete. Check your email.",
+                                Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();//käyttäjä kirjautuu joka tapauksessa sisään, joten
+                        finish();              //Joten käyttäjä kirjattava ulos, ennen todennusta.
+                        startActivity(new Intent(RegistrationActivity.this,
+                                Login.class));
+                    }else{//Jos firebase -sivusto alhaalla, lähettää seuraavan Toastin.
+                        Toast.makeText(RegistrationActivity.this,
+                                "You haven't verified your email",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 }

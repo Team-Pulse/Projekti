@@ -16,4 +16,7 @@
     <string name="refresh">Refresh</string>
     <string name="exit">Exit</string>
     <string name="e_mail">E-mail</string>
+    <string name="password_lost">Password lost?</string>
+    <string name="reset_email">Email</string>
+    <string name="reset_password">Reset Password</string>
 </resources>

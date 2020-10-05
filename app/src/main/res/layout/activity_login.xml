@@ -36,9 +36,9 @@
         android:id="@+id/tvinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/tvregister"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="109dp"
+        android:layout_marginTop="14dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="@string/incorrect_attempts" />
 
@@ -58,12 +58,21 @@
         android:id="@+id/tvregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tvinfo"
+        android:layout_below="@+id/tvPasswordLost"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp"
+        android:layout_marginTop="21dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="@string/sign_up"
         android:textSize="28sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPasswordLost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnlogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="@string/password_lost" />
 
 </RelativeLayout>

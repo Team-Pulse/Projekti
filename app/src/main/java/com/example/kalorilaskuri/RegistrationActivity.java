@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private EditText userName, userPassword, userEmail;
+    private EditText userName, userPassword, userPassword2, userEmail;
     private Button registerBtn;
     private TextView userLogin;
     private FirebaseAuth firebaseAuth;
@@ -76,6 +76,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private void setupUIViews(){
         userName = (EditText)findViewById(R.id.etUserName);
         userPassword = (EditText)findViewById(R.id.etuserpassword);
+        userPassword2 = (EditText)findViewById(R.id.etuserpassword2);
         userEmail = (EditText)findViewById(R.id.etuseremail);
         registerBtn = (Button)findViewById(R.id.registerbtn);
         userLogin = (TextView)findViewById(R.id.tvalreadysignedup);
@@ -86,11 +87,16 @@ public class RegistrationActivity extends AppCompatActivity {
 
         String name = userName.getText().toString();
         String password = userPassword.getText().toString();
+        String password2 = userPassword2.getText().toString();
         String email = userEmail.getText().toString();
 
         if(name.isEmpty() || password.isEmpty() || email.isEmpty()){
             Toast.makeText(this, "Enter all the details", Toast.LENGTH_SHORT).show();
-        }else{
+        }else if(password != password2){
+            Toast.makeText(this, "Password confirmation failed, " +
+                    "please check your password", Toast.LENGTH_SHORT).show();
+        }
+        else{
             result = true;
         }
         return result;

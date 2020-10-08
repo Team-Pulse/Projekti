@@ -81,8 +81,12 @@ public class Login extends AppCompatActivity {
     }
 
 
-    /*Jos tehtävä suoritettu, siirtää käyttäjän toiseen aktiviteettiin.*/
-
+    /**
+     *  Tarkistaa, että käyttäjä on varmistanut sähköpostinsa, sisältää laskurin, mikä vähenee
+     *  vääristä syötekerroista.
+     * @param userName Käyttäjän valitsema käyttäjätunnus
+     * @param userPassword Käyttäjän valitsema salasana.
+     */
     private void validate(String userName, String userPassword) {
 
         progressDialog.setMessage("Hold on. We're logging you in.");
@@ -110,6 +114,9 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    /**
+     * Boolean sähköpostin varmistukselle. Jos totta, siirtää käyttäjän MainActivityyn.
+     */
     private void checkEmailVertification(){
         FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
         Boolean emailFlag = firebaseUser.isEmailVerified(); /*emailflag on totta, jos käyttäjä

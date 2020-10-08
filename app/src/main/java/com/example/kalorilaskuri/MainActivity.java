@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * luokkanäkymä  uloskirjausnapille ja Eat! napille.
+ */
+
 public class MainActivity extends AppCompatActivity {
     private Button eatBtn;
     private FirebaseAuth firebaseAuth;
@@ -41,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void Exit(){//Uloskirjaus funktio kirjaa käyttäjän takaisin Activity_Login.xml:n.
+    /**
+     * Uloskirjaus funktio kirjaa käyttäjän takaisin Activity_Login.xml:n.
+     */
+    private void Exit(){
         firebaseAuth.signOut();
         finish();
         startActivity(new Intent(MainActivity.this, Login.class));
@@ -50,14 +57,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
+    /**
+     * nimetään activity_main.xml:stä löytyvä EAT! nappi, jonka id on button.
+     * asetetaan setOnClickListener metodi joka nappia painamalla käynnistää openFoodList()
+     * metodin
+     */
     public void setEatBtn() {
-        //nimetään activity_main.xml:stä löytyvä EAT! nappi, jonka id on button.
+
         eatBtn = findViewById(R.id.button);
-        //asetetaan setOnClickListener metodi joka nappia painamalla käynnistää openFoodList()
-        // metodin
+
         eatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,22 +76,30 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Luo uuden intent olion, mikä käynnistää FoodListActivityn
+     */
     public void openFoodList() {
-        //Luo uuden intent olion, mikä käynnistää FoodListActivityn
+
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Luo uuden intent olion mikä käynnistää MainActivityn.
+     * Käytetään return-buttonissa.
+     */
     public void openMain() {
-        //Luo uuden intent olion mikä käynnistää MainActivityn.
-        //Käytetään return-buttonissa.
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     *         Tyhjentää FoodListDetailsActivityn lisättyjen ruokien listan
+     *         Käytetään clear-buttonissa
+     */
     public void clearFoodListDetails() {
-        //Tyhjentää FoodListDetailsActivityn lisättyjen ruokien listan
-        //Käytetään clear-buttonissa
+
         FoodListDetailsSingletonClass.getInstance().getFoods().clear();
     }
 }

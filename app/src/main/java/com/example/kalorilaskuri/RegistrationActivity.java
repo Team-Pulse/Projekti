@@ -17,6 +17,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * @author Jukka-Pekka lappalainen
+ * Android Studio 4.0.1
+ * Build #AI-193.6911.18.40.6626763, built on June 25, 2020
+ * Rekisteröitymis näkymä, jossa luodaan käyttäjätunnus ja salasana.
+ */
 public class RegistrationActivity extends AppCompatActivity {
 
     private EditText userName, userPassword, userEmail;
@@ -32,12 +38,16 @@ public class RegistrationActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        /**
+         * "Register" napin käsky. Lataa datan databaseen käyttäen
+         * Googlen Firebase sivustolta ladattua APIa ja kirjastoa.
+         * ja kertoo käyttäjälle onko tehtävä onnistunut vai ei.
+         * Jos on niin siirrytään Login activityyn.
+         */
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(validate()){
-                    //lataa datan databaseen käyttäen
-                    //googlen firebase sivustolta ladattu APIa ja kirjastoa.
                     String user_email = userEmail.getText().toString().trim();
                     String user_password = userPassword.getText().toString().trim();
 
@@ -63,6 +73,9 @@ public class RegistrationActivity extends AppCompatActivity {
                 }
             }
         });
+        /**
+         * Vie käyttäjän takaisin Login aktiviteettiin.
+         */
         userLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +85,10 @@ public class RegistrationActivity extends AppCompatActivity {
         });
 
     }
-    //Asettaa muuttujat näkymille sekä niille tarkoitetuille id:lle.
+    /**
+     * Asettaa muuttujat näkymille sekä niille tarkoitetuille id:lle.
+     */
+
     private void setupUIViews(){
         userName = (EditText)findViewById(R.id.etUserName);
         userPassword = (EditText)findViewById(R.id.etuserpassword);
@@ -81,6 +97,10 @@ public class RegistrationActivity extends AppCompatActivity {
         userLogin = (TextView)findViewById(R.id.tvalreadysignedup);
     }
 
+    /**
+     * Kertoo, onko käyttäjä syöttänyt kaikki tarvittavat syötteet.
+     * @return
+     */
     private boolean validate(){
         Boolean result = false;
 
@@ -95,10 +115,17 @@ public class RegistrationActivity extends AppCompatActivity {
         }
         return result;
     }
-    // Jos todentaminen onnistuu, siirtää login aktiviteettiin.
+    /**
+     * Jos todentaminen onnistuu, siirtää login aktiviteettiin.
+     */
+
     private void sendEmailVertification(){
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-        if(firebaseUser != null){//Kun firebase saa  tiedon käyttäjästä, lähettää se todennusviestin.
+        if(firebaseUser != null){
+            /**
+             * Kun firebase saa  tiedon käyttäjästä, lähettää se todennusviestin ja ilmoittaa siitä
+             * käyttäjälle.
+             */
             firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
@@ -106,11 +133,18 @@ public class RegistrationActivity extends AppCompatActivity {
                         Toast.makeText(RegistrationActivity.this,
                                 "Register complete. Check your email.",
                                 Toast.LENGTH_SHORT).show();
-                        firebaseAuth.signOut();//käyttäjä kirjautuu joka tapauksessa sisään, joten
-                        finish();              //Joten käyttäjä kirjattava ulos, ennen todennusta.
+                        /**
+                         * käyttäjä kirjautuu joka tapauksessa sisään, joten
+                         * Joten käyttäjä kirjattava ulos, ennen todennusta.
+                         */
+                        firebaseAuth.signOut();
+                        finish();
                         startActivity(new Intent(RegistrationActivity.this,
                                 Login.class));
-                    }else{//Jos firebase -sivusto alhaalla, lähettää seuraavan Toastin.
+                    }else{
+                        /**
+                         * Jos käyttäjä ei ole todentanut meiliä tai Firebase alhaalla, niin->
+                         */
                         Toast.makeText(RegistrationActivity.this,
                                 "You haven't verified your email",
                                 Toast.LENGTH_SHORT).show();

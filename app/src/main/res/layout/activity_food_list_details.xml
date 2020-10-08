@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:context=".FoodListDetailsActivity">
+    /*
+    *@author Roni Heininen, Robert Rastas, Jukka-Pekka Lappalainen
+    */
 
     <Button
         android:id="@+id/eatmore"

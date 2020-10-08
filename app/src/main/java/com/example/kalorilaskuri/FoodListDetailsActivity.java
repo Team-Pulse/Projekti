@@ -22,6 +22,11 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * @author Jukka-Pekka Lappalainen, Robert Rastas, Roni Heininen
+ * @version Android Studio 4.0.1 Build #AI-193.6911.18.40.6626763, built on June 25, 2020
+ */
+
 public class FoodListDetailsActivity extends MainActivity implements FoodListAdapter.FoodListViewHolder.OnFoodListListener {
     Button eatmorebtn;
     Button returnbtn;
@@ -44,6 +49,9 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
         setClearbtn();
     }
 
+    /**
+     * asetetaan näkymät adaptereille.
+     */
     public void setFoodListDetail() {
 
         this.mAddedFoods = findViewById(R.id.addedfoods);
@@ -53,19 +61,30 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(mAddedFoods);
         mAddedFoods.setLayoutManager(mLayoutManager);
         mAddedFoods.setAdapter(mAdapter);
+        totalKcal = findViewById(R.id.kcals);
     }
 
+    /**
+     * asetetaan kalorilaskurille yhteenlaskettu kalorien summa.
+     */
     public void setTotalKcal() {
-        totalKcal = findViewById(R.id.kcals);
         totalKcal.setText(Integer.toString(FoodListDetailsSingletonClass.totalKcal(FoodListDetailsSingletonClass.getInstance().getFoods())));
     }
 
+    /**
+     * Luodaan itemTouchHelperCallBack olio.
+     */
     ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
             return false;
         }
 
+        /**
+         * metodilla poistetaan pyyhkäisemällä listalle lisättyjä olioita.
+         * @param viewHolder
+         * @param i
+         */
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
             FoodListDetailsSingletonClass.getInstance().getFoods().remove(viewHolder.getAdapterPosition());
@@ -74,6 +93,9 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
         }
     };
 
+    /**
+     * metodi Eat more" näppäimelle. Avaa ruokalista näkymän.
+     */
     public void setEatmorebtn() {
 
         eatmorebtn = findViewById(R.id.eatmore);
@@ -85,8 +107,10 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
         });
     }
 
+    /**
+     * Return näppäimen komento, palaa mainActivity näkymään.
+     */
     public void setReturnbtn() {
-
         returnbtn = findViewById(R.id.returnButton);
         returnbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +120,9 @@ public class FoodListDetailsActivity extends MainActivity implements FoodListAda
         });
     }
 
+    /**
+     * Tällä metodilla tyhjennetään koko lista.
+     */
     public void setClearbtn() {
 
         clearbtn.setOnClickListener(new View.OnClickListener() {

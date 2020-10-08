@@ -2,10 +2,25 @@ package com.example.kalorilaskuri;
 
 import java.util.ArrayList;
 
+/**
+ * Luettelo singletonluokka, jossa ruoat.
+ * @author Roni Heininen
+ * @version Android Studio 4.0.1 Build #AI-193.6911.18.40.6626763, built on June 25, 2020
+ */
+
 public class FoodList {
+    /**
+     * Luodaan staattinen oliomuuttuja
+     */
     private static final FoodList ourInstance = new FoodList();
+    /**
+     * Luodaan luettelo foods.
+     */
     private ArrayList<Food> foods = new ArrayList<>();
 
+    /**
+     * ruokaolioita.
+     */
     private FoodList() {
         foods.add(new Food("mandariini", 32, R.drawable.icons8_orange_50));
         foods.add(new Food("appelsiini", 43, R.drawable.icons8_orange_50));
@@ -29,14 +44,27 @@ public class FoodList {
         foods.add(new Food("parsakaali", 30, R.drawable.icons8_broccoli_50));
     }
 
+    /**
+     * palauttaa staattisen oliomuuttujan.
+     * @return ourInstance
+     */
     public static FoodList getInstance() {
         return ourInstance;
     }
 
+    /**
+     * metodi palauttaa listalta foods.
+     * @return
+     */
     public ArrayList<Food> getFoods() {
         return this.foods;
     }
 
+    /**
+     * palauttaa tietyn yksittäisen olion listalta.
+     * @param index
+     * @return
+     */
     public Food getFood(int index) {
         return foods.get(index);
     }

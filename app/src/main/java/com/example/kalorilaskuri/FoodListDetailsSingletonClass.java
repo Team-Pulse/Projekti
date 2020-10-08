@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 /**
  * Luokka sisältää ruokalistalla olevien olioiden ominaisuuksia:Nimen ja energiamäärän
- * @author Jukka-Pekka Lappalainen
+ * @author Jukka-Pekka Lappalainen, Robert Rastas
  */
 
 public class FoodListDetailsSingletonClass {
@@ -15,6 +15,11 @@ public class FoodListDetailsSingletonClass {
     private static final FoodListDetailsSingletonClass ourInstance = new FoodListDetailsSingletonClass();
     public ArrayList<Food> addedfoods;
 
+    /**
+     * summaa lisättyjen olioiden kalorit yhteen.
+     * @param foodDetails
+     * @return
+     */
     public static int totalKcal(ArrayList<Food> foodDetails) {
         int sum = 0;
         for (int i = 0; i < foodDetails.size(); i++) {
@@ -23,34 +28,45 @@ public class FoodListDetailsSingletonClass {
         return sum;
     }
 
+    /**
+     *  Luo foodDetailsActivity taulukon
+     */
     public FoodListDetailsSingletonClass(){
-        /*
-         * Luo foodDetailsActivity taulukon
-         */
+
+
+
         addedfoods = new ArrayList<>();
     }
 
+    /**
+     * palauttaa staattisen olion.
+     * @return
+     */
     public static FoodListDetailsSingletonClass getInstance(){
-        /**
-         * @return ourInstance
-         */
+
         return ourInstance;
     }
-
+    /**
+     * palauttaa addedfoods listan.
+     * @return addedfoods
+     */
     public ArrayList<Food> getFoods(){
-        /**
-         * @return foodDetailsActivity
-         */
         return this.addedfoods;
     }
 
+    /**
+     * palauttaa yksittäisen olion.
+     * @param index
+     * @return
+     */
     public Food getFood(int index){
-        /**
-         * @return foodDetails
-         */
+
         return addedfoods.get(index);
     }
 
+    /**
+     * tyhjentää listan.
+     */
     public void clearArray(){
         addedfoods = new ArrayList<>();
     }

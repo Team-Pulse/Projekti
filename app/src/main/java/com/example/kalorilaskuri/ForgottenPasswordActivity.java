@@ -15,10 +15,27 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Class for password reset
+ *
+ * @author Jukka-Pekka Lappalainen
+ * @version Android Studio 4.0.1 Build #AI-193.6911.18.40.6626763, built on June 25, 2020
+ */
+
 public class ForgottenPasswordActivity extends AppCompatActivity {
 
+    /**
+     * Edittext kenttä sähköpostille., johon salasanan nollausviesti lähetetään
+     */
     private EditText forgottenPasswordEmail;
+    /**
+     * salasanan reset nappi.
+     */
     private Button passwordResetbtn;
+
+    /**
+     * FirebauseAuth olio.
+     */
     private FirebaseAuth firebaseAuth;
 
 
@@ -31,13 +48,19 @@ public class ForgottenPasswordActivity extends AppCompatActivity {
         passwordResetbtn = (Button)findViewById(R.id.passwordResetbtn);
         firebaseAuth = FirebaseAuth.getInstance();
 
+        /**
+         * Lähettää pyynnön firebase databaseen, josta sähköpostin resetointi varmistusviesti tulee
+         */
         passwordResetbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //ottaa edittext olion, kääntää sen Stringiksi ja poistaa välilyönnit.
                 String userEmail = forgottenPasswordEmail.getText().toString().trim();
 
-                if(userEmail.equals("")){//Jos syöte tyhjä niin lähettää Toastin.
+                /*
+                 * Jos syöte on tyhjä, niin lähettää Toastin "Enter your email"
+                 */
+                if(userEmail.equals("")){
                     Toast.makeText(ForgottenPasswordActivity.this,
                             "Enter your email", Toast.LENGTH_SHORT).show();
                 }else{
